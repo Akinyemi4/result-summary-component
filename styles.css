@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "HankenGrotesk";
+  src: url("/assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 0 900;
+  font-display: wrap;
+}
+body {
+  font-family: "HankenGrotesk";
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  /* width: 70%; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.15);
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* - Light slate blue (background): hsl(252, 100%, 67%)
+- Light royal blue (background): hsl(241, 81%, 54%) */
+
+.result {
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    hsl(252, 100%, 67%),
+    hsl(241, 81%, 54%)
+  );
+  padding: 55px;
+  border-radius: 26px;
+  z-index: -99;
+  overflow: hidden;
+}
+/* .align {
+  align-self: end;
+} */
+.result-heading {
+  font-family: "HankenGrotesk";
+  font-weight: 500;
+  font-size: 20px;
+  color: hsl(241, 100%, 89%);
+  margin-bottom: 68px;
+}
+.mark {
+  font-weight: 700;
+  color: #fff;
+  font-size: 64px;
+}
+.total-mark {
+  font-size: 16px;
+  color: hsl(241, 100%, 89%);
+}
+.result-circle {
+  position: relative;
+}
+.result-circle::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 80%;
+  border-radius: 50%;
+  background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+  z-index: -1;
+}
+.result-comment {
+  margin-top: 80px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.result-text {
+  font-size: 14px;
+  width: 216px;
+  margin: 0 auto;
+  line-height: 20px;
+  color: hsl(241, 100%, 89%);
+}
+.summary {
+  padding: 45px 30px;
+}
+.summary-heading {
+  font-weight: 900;
+  font-size: 24px;
+  color: hsl(224, 30%, 27%);
+  margin-bottom: 22px;
+}
+.summary-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.summary-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 15px;
+  border-radius: 8px;
+}
+.activity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.activity img {
+  /* font-size: 8px; */
+  /* width: 8px; */
+  height: 18px;
+}
+
+/* 
+- Light red: hsl(0, 100%, 67%)
+- Orangey yellow: hsl(39, 100%, 56%)
+- Green teal: hsl(166, 100%, 37%)
+- Cobalt blue: hsl(234, 85%, 45%)
+*/
+.activity-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.score {
+  font-size: 16px;
+  font-weight: 900;
+  color: hsl(224, 30%, 27%);
+}
+.blur {
+  color: hsla(224, 30%, 27%, 0.363);
+}
+.pink {
+  background-color: hsl(0, 100%, 67%, 0.05);
+}
+.pink .activity-text {
+  color: hsl(0, 100%, 67%);
+}
+.yellow {
+  background-color: hsla(39, 100%, 56%, 0.05);
+}
+.yellow .activity-text {
+  color: hsl(39, 100%, 56%);
+}
+.green {
+  background-color: hsl(166, 100%, 37%, 0.05);
+}
+.green .activity-text {
+  color: hsl(166, 100%, 37%);
+}
+.blue {
+  background-color: hsl(234, 85%, 45%, 0.05);
+}
+.blue .activity-text {
+  color: hsl(234, 85%, 45%);
+}
+
+.btn,
+.btn:link {
+  background: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+
+  color: hsl(221, 100%, 96%);
+  background-color: hsl(224, 30%, 27%);
+
+  padding: 15px 24px;
+  border-radius: 100px;
+  transition: background-color 0.3s;
+  letter-spacing: 0.3px;
+  border: none;
+}
+.btn:hover {
+  background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  body {
+    align-items: start;
+  }
+  .container {
+    display: block;
+    border-radius: 0px;
+  }
+  .result {
+    padding: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    z-index: -999;
+  }
+  .result-circle::after {
+    width: 50%;
+    padding-bottom: 50%;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .mark {
+    font-size: 36px;
+    position: relative;
+    z-index: 10;
+  }
+  .total-mark {
+    font-size: 12px;
+  }
+  .result-heading {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .result-comment {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  .result-text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .summary {
+    padding: 30px 15px;
+  }
+  .summary-heading {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .score,
+  .activity-text {
+    font-size: 14px;
+  }
+  .activity img {
+    height: 16px;
+  }
+  .btn:link {
+    font-size: 12px;
+  }
+}
